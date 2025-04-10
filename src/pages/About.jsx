@@ -1,50 +1,84 @@
+import React from "react";
+import { Element } from "react-scroll";
 import { motion } from "framer-motion";
 
+// Animation variants for each paragraph
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.3,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+};
+
 const About = () => {
-    return (
-        <section className="min-h-[90vh] p-6 md:p-16 bg-white dark:bg-gray-900 transition-all duration-500 flex flex-col gap-10 justify-center">
-            {/* Title */}
-            <motion.h2
-                className="text-3xl md:text-4xl font-bold text-center text-gray-800 dark:text-white"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-            >
-                About Me
-            </motion.h2>
+  const paragraphs = [
+    `Hello! I'm Harish, a passionate and self-taught MERN Stack Developer from Salem District, Tamil Nadu. I started my journey into full-stack development after completing my diploma in Electrical and Electronics Communication Engineering, and I’ve been building ever since!`,
 
-            {/* Content */}
-            <motion.div
-                className="max-w-5xl mx-auto text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-            >
-                <p>
-                    Hey there! 👋 I'm <span className="font-bold text-blue-600 dark:text-blue-400">Harish</span> from <span className="font-medium">Mettur, Salem District, Tamil Nadu</span>.
-                    I’m a dedicated, self-taught <span className="font-semibold">Full Stack Developer</span> currently pursuing the MERN stack course via <span className="italic">Guvi</span>, and constantly building and learning on my own.
-                </p>
+    `My tech stack includes HTML, CSS, JavaScript, ReactJS, TailwindCSS, Node.js, Express.js, MongoDB, and Git. I’ve built projects like an Income Expense Tracker, Event Management Platform, Portfolio Website, and even an upcoming Voice AI Trainer called SpeakFlow.`,
 
-                <p>
-                    My tech stack includes:
-                    <span className="font-medium text-gray-900 dark:text-white"> React, Tailwind CSS, JavaScript, Node.js, Express, and MongoDB</span>. I've worked on several projects like a memory game 🧠, an income-expense tracker 💰, an API-based product app 🛍️, and a fully-featured online event platform 🎉.
-                </p>
+    `I focus on writing clean, maintainable code and designing responsive, user-friendly interfaces. I love learning new tools and tackling real-world problems through web apps.`,
 
-                <p>
-                    I enjoy turning problems into solutions with clean, scalable code. Platforms like <span className="font-semibold">CodeKata</span> help me sharpen my algorithmic thinking, and I also explore tools like GitHub, Netlify, Postman, and Render for real-world project deployment.
-                </p>
+    `Currently, I’m enrolled in the GUVI MERN Stack course (Tamil Batch FSD-WD-T-B11) and constantly leveling up my skills. You can check out my work on GitHub.`,
 
-                <p>
-                    Beyond coding, I believe in consistent self-improvement, strong communication, and teamwork. My current goal is to land a meaningful role where I can <span className="font-semibold">contribute, grow, and innovate</span> as part of a passionate team.
-                </p>
+    `I'm actively seeking opportunities to contribute to real-world projects and grow as a developer. Let’s connect and build something great!`,
+  ];
 
-                <p className="pt-2 text-center font-medium text-gray-800 dark:text-white">
-                    🚀 Let’s collaborate and build impactful digital experiences together!
-                </p>
-            </motion.div>
-        </section>
-    );
+  return (
+    <Element
+      name="about"
+      className="py-16 px-4 sm:px-6 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white"
+    >
+      <motion.div
+        className="max-w-4xl mx-auto"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <motion.h2
+          className="text-3xl sm:text-4xl font-bold mb-6 text-blue-600 dark:text-blue-400"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          About Me
+        </motion.h2>
+
+        {paragraphs.map((text, index) => (
+          <motion.p
+            key={index}
+            custom={index}
+            variants={fadeInUp}
+            className="mt-4 text-base sm:text-lg leading-7"
+          >
+            {text.includes("GitHub") ? (
+              <>
+                Currently, I’m enrolled in the GUVI MERN Stack course (Tamil Batch
+                FSD-WD-T-B11) and constantly leveling up my skills. You can check out
+                my work on{" "}
+                <a
+                  href="https://github.com/IT-HARISH-R"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 underline hover:text-blue-700 transition-colors duration-300"
+                >
+                  GitHub
+                </a>
+                .
+              </>
+            ) : (
+              text
+            )}
+          </motion.p>
+        ))}
+      </motion.div>
+    </Element>
+  );
 };
 
 export default About;

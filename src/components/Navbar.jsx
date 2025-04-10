@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-scroll";
 import { useState, useEffect } from "react";
 import { FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa";
 
@@ -23,18 +23,24 @@ const Navbar = () => {
   }, [darkMode]);
 
   const navLinks = [
-    { path: "/", label: "Home" },
-    { path: "/about", label: "About" },
-    { path: "/projects", label: "Projects" },
-    { path: "/skills", label: "Skills" },
-    { path: "/contact", label: "Contact" },
+    { path: "home", label: "Home" },
+    { path: "about", label: "About" },
+    { path: "skills", label: "Skills" },
+    { path: "projects", label: "Projects" },
+    { path: "contact", label: "Contact" },
   ];
 
   return (
     <nav className="bg-white dark:bg-gray-800 shadow p-4 sticky top-0 z-50">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="text-xl font-bold text-blue-600 dark:text-white">
+        <Link
+          to="home"
+          smooth={true}
+          duration={500}
+          offset={-70}
+          className="text-xl font-bold text-blue-600 dark:text-white cursor-pointer"
+        >
           Harish.dev
         </Link>
 
@@ -44,7 +50,11 @@ const Navbar = () => {
             <li key={link.path}>
               <Link
                 to={link.path}
-                className="text-gray-700 dark:text-gray-200 hover:text-blue-500"
+                smooth={true}
+                duration={500}
+                offset={-70}
+                className="cursor-pointer hover:text-blue-600 transition"
+                onClick={() => setMenuOpen(false)}
               >
                 {link.label}
               </Link>
@@ -52,7 +62,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Right Section: Dark Mode + Menu Button */}
+        {/* Right Section */}
         <div className="flex items-center gap-4">
           <button
             onClick={toggleDarkMode}
@@ -61,7 +71,7 @@ const Navbar = () => {
             {darkMode ? <FaSun /> : <FaMoon />}
           </button>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Menu Button */}
           <div className="md:hidden text-2xl cursor-pointer" onClick={toggleMenu}>
             {menuOpen ? <FaTimes /> : <FaBars />}
           </div>
@@ -75,6 +85,9 @@ const Navbar = () => {
             <li key={link.path}>
               <Link
                 to={link.path}
+                smooth={true}
+                duration={500}
+                offset={-70}
                 className="block text-gray-700 dark:text-gray-200 hover:text-blue-500"
                 onClick={() => setMenuOpen(false)}
               >

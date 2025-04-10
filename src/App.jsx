@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import Skills from "./pages/Skills";
 import { AnimatePresence } from "framer-motion";
+import Hero from "./pages/Hero";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -24,11 +25,12 @@ function App() {
       <AnimatePresence mode="wait">
 
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/" element={<Hero />} />
         </Routes>
       </AnimatePresence>
       <ScrollToTop />
