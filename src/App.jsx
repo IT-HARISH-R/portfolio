@@ -6,6 +6,9 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import Skills from "./pages/Skills";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -16,14 +19,19 @@ function App() {
 
   return (
     <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300 min-h-screen">
+
       <Navbar toggleDarkMode={() => setDarkMode(!darkMode)} darkMode={darkMode} />
-      
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      <AnimatePresence mode="wait">
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </AnimatePresence>
+      <ScrollToTop />
 
       <Footer />
     </div>
