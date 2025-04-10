@@ -7,7 +7,7 @@ import {
     SiTailwindcss, SiExpress, SiMongodb, SiPostman,
     SiVite, SiRedux, SiRender, SiMysql,
     SiNetlify, SiRazorpay, SiOpenai, SiReactrouter, SiMongoose,
-    SiFirebase, SiTypescript
+    SiFirebase, SiTypescript, SiGooglecloud
 } from "react-icons/si";
 import { DiVisualstudio } from "react-icons/di";
 import { MdApi } from "react-icons/md";
@@ -21,11 +21,10 @@ const categories = [
             { icon: <FaCss3Alt />, name: "CSS" },
             { icon: <SiTailwindcss />, name: "Tailwind CSS" },
             { icon: <FaJs />, name: "JavaScript" },
-            // { icon: <SiTypescript />, name: "TypeScript" },
             { icon: <FaReact />, name: "ReactJS" },
             { icon: <SiReactrouter />, name: "React Router" },
             { icon: <SiRedux />, name: "Redux" },
-            // { icon: <MdApi />, name: "UI/UX Principles" },
+            { icon: <SiVite />, name: "Vite" },
         ]
     },
     {
@@ -35,8 +34,8 @@ const categories = [
             { icon: <SiExpress />, name: "Express.js" },
             { icon: <SiMongodb />, name: "MongoDB" },
             { icon: <SiMongoose />, name: "Mongoose" },
-            { icon: <SiFirebase />, name: "Firebase (Auth/DB)" },
             { icon: <MdApi />, name: "REST APIs" },
+            // { icon: <SiFirebase />, name: "Firebase" },
         ]
     },
     {
@@ -54,7 +53,8 @@ const categories = [
             { icon: <MdApi />, name: "Fake Store API" },
             { icon: <MdApi />, name: "OMDB API" },
             { icon: <SiRazorpay />, name: "Razorpay" },
-            { icon: <SiOpenai />, name: "OpenAI API" },
+            // { icon: <SiOpenai />, name: "OpenAI API" },
+            { icon: <SiGooglecloud />, name: "Gemini API" },
         ]
     },
     {
@@ -62,15 +62,16 @@ const categories = [
         skills: [
             { icon: <SiPostman />, name: "Postman" },
             { icon: <DiVisualstudio />, name: "VS Code" },
-            { icon: <TbBrandOpenai />, name: "ChatGPT" },
+            // { icon: <TbBrandOpenai />, name: "ChatGPT" },
         ]
     },
     {
         title: "Database",
         skills: [
-            { icon: <FaDatabase />, name: "MySQL (Basic)" },
+            { icon: <SiMysql />, name: "MySQL" },
             { icon: <SiMongodb />, name: "MongoDB" },
-            { icon: <FaDatabase />, name: "NoSQL" }]
+            { icon: <FaDatabase />, name: "NoSQL" },
+        ]
     }
 ];
 

@@ -32,51 +32,54 @@ const About = () => {
   return (
     <Element
       name="about"
-      className="py-16 px-4 sm:px-6 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white"
+      className="w-full py-20 px-4 sm:px-8 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white"
     >
-      <motion.div
-        className="max-w-4xl mx-auto"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <motion.h2
-          className="text-3xl sm:text-4xl font-bold mb-6 text-blue-600 dark:text-blue-400"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          About Me
-        </motion.h2>
+      <div className="max-w-5xl mx-auto">
 
-        {paragraphs.map((text, index) => (
-          <motion.p
-            key={index}
-            custom={index}
-            variants={fadeInUp}
-            className="mt-4 text-base sm:text-lg leading-7"
+        <motion.div
+          className="flex flex-col gap-y-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <motion.h2
+            className="text-3xl sm:text-4xl font-bold mb-2 text-blue-600 dark:text-blue-400 text-center md:text-left"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            {text.includes("GitHub") ? (
-              <>
-                Currently, I’m enrolled in the GUVI MERN Stack course (Tamil Batch
-                FSD-WD-T-B11) and constantly leveling up my skills. You can check out
-                my work on{" "}
-                <a
-                  href="https://github.com/IT-HARISH-R"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 underline hover:text-blue-700 transition-colors duration-300"
-                >
-                  GitHub
-                </a>
-                .
-              </>
-            ) : (
-              text
-            )}
-          </motion.p>
-        ))}
-      </motion.div>
+            About Me
+          </motion.h2>
+
+          {paragraphs.map((text, index) => (
+            <motion.p
+              key={index}
+              custom={index}
+              variants={fadeInUp}
+              className="text-base sm:text-lg leading-7"
+            >
+              {text.includes("GitHub") ? (
+                <>
+                  Currently, I’m enrolled in the GUVI MERN Stack course (Tamil Batch
+                  FSD-WD-T-B11) and constantly leveling up my skills. You can check out
+                  my work on{" "}
+                  <a
+                    href="https://github.com/IT-HARISH-R"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 underline hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300"
+                  >
+                    GitHub
+                  </a>
+                  .
+                </>
+              ) : (
+                text
+              )}
+            </motion.p>
+          ))}
+        </motion.div>
+      </div>
     </Element>
   );
 };

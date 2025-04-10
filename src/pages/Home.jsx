@@ -7,20 +7,19 @@ import { TypeAnimation } from "react-type-animation";
 const Home = () => {
     return (
         <section className="bg-white dark:bg-gray-900">
-            <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-16 gap-12 min-h-[90vh] transition-all duration-500">
+            <div className="container mx-auto gap-20 flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-16 min-h-[50vh] transition-all duration-500">
 
                 {/* Left Content */}
                 <motion.div
                     className="flex-1 text-center md:text-left"
                     initial={{ opacity: 0, x: -60 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
                 >
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-gray-900 dark:text-white">
                         Hey, I'm <span className="text-blue-600 dark:text-blue-400">Harish</span>
                     </h1>
 
-                    {/* Type Animation */}
                     <TypeAnimation
                         sequence={[
                             "Full Stack MERN Developer ",
@@ -56,6 +55,7 @@ const Home = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-all duration-300"
+                            aria-label="Download Resume"
                         >
                             <FaArrowDown className="text-sm" />
                             Download Resume
@@ -69,7 +69,6 @@ const Home = () => {
                         </Link>
                     </motion.div>
 
-                    {/* Social Icons */}
                     <motion.div
                         className="flex justify-center md:justify-start space-x-5"
                         initial={{ opacity: 0 }}
@@ -80,6 +79,7 @@ const Home = () => {
                             href="https://github.com/IT-HARISH-R"
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label="GitHub"
                             className="text-2xl text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition transform hover:scale-110"
                         >
                             <FaGithub />
@@ -88,6 +88,7 @@ const Home = () => {
                             href="https://linkedin.com/in/harishdeveloper"
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label="LinkedIn"
                             className="text-2xl text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition transform hover:scale-110"
                         >
                             <FaLinkedin />
@@ -96,6 +97,7 @@ const Home = () => {
                             href="https://instagram.com/itz.harish_2729"
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label="Instagram"
                             className="text-2xl text-gray-700 dark:text-gray-300 hover:text-pink-500 transition transform hover:scale-110"
                         >
                             <FaInstagram />
@@ -112,7 +114,7 @@ const Home = () => {
                 >
                     <motion.img
                         src={heroImg}
-                        alt="Harish - Developer"
+                        alt="Harish - Full Stack Developer"
                         className="rounded-full w-72 h-72 md:w-96 md:h-96 object-cover mx-auto shadow-xl ring-4 ring-blue-500 dark:ring-blue-400"
                         whileHover={{ scale: 1.05, rotate: 1 }}
                         transition={{ type: "spring", stiffness: 200 }}
