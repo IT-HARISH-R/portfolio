@@ -11,13 +11,13 @@ const Project = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6 }}
-                    className="mb-10 sticky w-full top-20 h-screen rounded-2xl overflow-hidden bg-card  shadow-lg border border-border hover:shadow-[0_5px_20px] hover:shadow-muted flex flex-col md:flex-row gap-4 z-20"
+                    className="mb-10 sticky top-20 container mx-auto w-full py-8 px-2 rounded-2xl overflow-hidden bg-white dark:bg-gray-900 shadow-lg border border-border hover:shadow-[0_5px_20px] hover:shadow-muted flex flex-col md:flex-row gap-4"
                 >
                     {/* Image Section (Placeholder or Static Image) */}
                     <div className="md:basis-4/6 p-4 max-sm:p-2">
-                        <div className="h-full rounded-xl overflow-hidden border border-border">
+                        <div className="rounded-xl overflow-hidden border border-border">
                             <img
-                                src="/_next/static/media/1.1e19374c.png"
+                                src={project.img}
                                 alt={project.title}
                                 className="w-full h-full object-cover"
                                 loading="lazy"
@@ -49,7 +49,7 @@ const Project = () => {
                         </div>
 
                         {/* Buttons + Logo */}
-                        <div className="flex items-end justify-between">
+                        <div className="flex  justify-between">
                             <div className="flex gap-2">
                                 <a href={project.repo} target="_blank" rel="noopener noreferrer">
                                     <button className="flex items-center gap-2 bg-blue-600 text-white font-medium px-4 py-2 rounded hover:bg-blue-700 transition">
@@ -62,12 +62,6 @@ const Project = () => {
                                     </button>
                                 </a>
                             </div>
-                            <img
-                                src="/_next/static/media/skill-icons--linux-light.29bbd7b2.svg"
-                                alt="Project Logo"
-                                className="w-14"
-                                loading="lazy"
-                            />
                         </div>
                     </div>
                 </motion.div>
