@@ -7,7 +7,7 @@ const Navbar = () => {
   const [darkMode, setDarkMode] = useState(() =>
     localStorage.getItem("theme") === "dark"
   );
-
+// -----------------
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
@@ -21,6 +21,7 @@ const Navbar = () => {
       localStorage.setItem("theme", "light");
     }
   }, [darkMode]);
+
 
   const navLinks = [
     { path: "home", label: "Home" },

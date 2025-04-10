@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FaArrowDown, FaArrowRight, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaArrowDown, FaArrowRight, FaEnvelope, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import heroImg from "../assets/heroimg.jpg";
 import { TypeAnimation } from "react-type-animation";
 
@@ -93,7 +93,7 @@ const Home = () => {
                         >
                             <FaLinkedin />
                         </a>
-                        <a
+                        {/* <a
                             href="https://instagram.com/itz.harish_2729"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -101,6 +101,12 @@ const Home = () => {
                             className="text-2xl text-gray-700 dark:text-gray-300 hover:text-pink-500 transition transform hover:scale-110"
                         >
                             <FaInstagram />
+                        </a> */}
+                        <a
+                            href="mailto:mernharish@gmail.com"
+                            className="text-xl text-gray-700 dark:text-gray-300 hover:text-red-500"
+                        >
+                            <FaEnvelope  />
                         </a>
                     </motion.div>
                 </motion.div>
